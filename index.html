@@ -5,126 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>logo_with_meme</title>
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: #000;
-      overflow: hidden;
-    }
+    * { margin: 0; padding: 0; font-family: sans-serif; }
+    body { background: #000; color: #fff; }
 
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      transition: opacity 0.8s ease;
+    .slide1, .slide2 {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-size: cover;
+      background-position: center;
     }
 
     .slide1 {
-      background: url('https://sigmawire.net/i/04/NRVzih.webp') no-repeat center center;
-      background-size: cover;
+      display: flex;
+      background-image: url('https://sigmawire.net/i/04/NRVzih.webp');
+      position: relative;
+    }
+
+    .slide1 .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
       z-index: 1;
     }
 
-    .overlay {
-      background: rgba(0, 0, 0, 0.7);
-      position: absolute;
-      width: 100%;
-      height: 100%;
+    .slide1 .content {
+      position: relative;
       z-index: 2;
-    }
-
-    .content {
-      position: absolute;
-      z-index: 3;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       text-align: center;
-      color: #ff00ff;
     }
 
-    h1 {
-      font-size: 3em;
-      margin: 0;
-      animation: flicker 1s infinite;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
-    }
-
-    p {
-      margin: 10px 0;
-      font-size: 1.2em;
+    .slide1 h1 {
+      font-size: 3rem;
       color: #fff;
+      margin-bottom: 1rem;
     }
 
-    .btns {
-      margin-top: 30px;
+    .slide1 p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
 
-    .btn {
-      background: #ff00ff;
-      color: white;
-      padding: 12px 24px;
+    .slide1 button {
+      padding: 10px 20px;
       margin: 10px;
+      font-size: 1rem;
+      background: #ff007f;
+      color: #fff;
       border: none;
-      border-radius: 5px;
-      font-size: 1em;
       cursor: pointer;
-      box-shadow: 0 0 10px #ff00ff;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background: white;
-      color: #000;
     }
 
     .slide2 {
       background: #000;
-      color: white;
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      opacity: 0;
-      z-index: 0;
-      pointer-events: none;
+      padding: 20px;
     }
 
     .slide2.active {
-      opacity: 1;
-      z-index: 5;
-      pointer-events: auto;
-      transition: opacity 1s ease;
+      display: flex;
     }
 
-    .cta-btn {
-      background: #ff00ff;
-      color: white;
-      padding: 15px 30px;
-      margin-top: 20px;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ff00ff;
+    .slide2 h2 {
+      font-size: 2rem;
+      color: #ff007f;
+      margin-bottom: 1rem;
     }
 
-    .warning {
-      margin-top: 15px;
-      font-size: 1em;
-      color: #ff4444;
-      background: rgba(255,0,0,0.2);
-      padding: 6px 14px;
-      border-radius: 8px;
-      display: inline-block;
+    .slide2 img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px #ff007f;
+    }
+
+    .slide2 a {
+      text-decoration: none;
+      padding: 10px 20px;
+      background: #ff007f;
+      color: #fff;
+      border-radius: 5px;
     }
   </style>
 </head>
@@ -134,43 +102,43 @@
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_efbaad2df3.mp3?filename=moan-female-85785.mp3" type="audio/mpeg">
 </audio>
 
-<div class="slide slide1"></div>
-<div class="overlay"></div>
-
-<div class="content">
-  <h1>logo_with_meme</h1>
-  <p>Where memes meet wild fantasies 😈</p>
-  <div class="warning">Are you 18+? Strictly for adults only 🔞</div>
-  <div class="btns">
-    <button class="btn" onclick="enterSite()">Enter</button>
-    <button class="btn" onclick="leaveSite()">Leave</button>
+<div class="slide1" id="slide1">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>logo_with_meme</h1>
+    <p>Are you 18+? Strictly for adults only 🔞</p>
+    <button onclick="enterSite()">Enter</button>
+    <button onclick="leaveSite()">Leave</button>
   </div>
 </div>
 
-<div class="slide slide2" id="slide2">
-  <h1 style="color:#ff00ff;text-shadow:0 0 10px #ff00ff;">Welcome Inside 😏</h1>
-  <p>Enjoy spicy memes & exclusive adult vibes.</p>
-  <button class="cta-btn" onclick="window.location.href='https://t.me/+5-6RRuotR1JmOGVl'">Join Our Telegram</button>
+<div class="slide2" id="slide2">
+  <h2>Welcome Inside 🔥</h2>
+  <img src="https://sigmawire.net/i/04/megEqX.webp" alt="Adult Content" />
+  <a href="https://t.me/+5-6RRuotR1JmOGVl">Join Our Telegram</a>
 </div>
 
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("moanSound");
+    document.body.addEventListener("click", () => {
+      audio.load();
+    }, { once: true });
+  });
+
   function enterSite() {
-    const audio = document.getElementById('moanSound');
-    const slide2 = document.getElementById('slide2');
+    document.getElementById("slide1").style.display = "none";
+    document.getElementById("slide2").classList.add("active");
 
-    slide2.classList.add('active');
-
-    // Play moan sound
-    audio.volume = 0.7;
-    audio.play().catch(() => {
-      console.log("Audio play blocked. User interaction needed.");
+    const audio = document.getElementById("moanSound");
+    audio.volume = 1;
+    audio.play().catch((e) => {
+      console.log("Audio play blocked:", e);
     });
-
-    if (navigator.vibrate) navigator.vibrate(100);
   }
 
   function leaveSite() {
-    alert("You must be 18+ to enter.");
+    alert("You must be 18+ to continue.");
     window.location.href = "https://google.com";
   }
 </script>
