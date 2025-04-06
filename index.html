@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>logo_with_meme</title>
   <style>
-    * { margin: 0; padding: 0; font-family: sans-serif; }
+    * { margin: 0; padding: 0; font-family: sans-serif; box-sizing: border-box; }
     body { background: #000; color: #fff; }
 
     .slide1, .slide2 {
@@ -101,7 +101,7 @@
       box-shadow: 0 0 10px #ff007f;
     }
 
-    /* Bot icon floating */
+    /* Floating icons top-right */
     .bot-icon {
       position: fixed;
       top: 15px;
@@ -110,7 +110,8 @@
     }
 
     .bot-icon img {
-      width: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       filter: drop-shadow(0 0 6px #ff007f);
       transition: transform 0.3s ease;
@@ -119,23 +120,41 @@
     .bot-icon img:hover {
       transform: scale(1.1);
     }
+
+    .bot-icon .icon-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
   </style>
 </head>
 <body>
 
-<!-- Sound -->
+<!-- 🔊 Moan Sound -->
 <audio id="moanSound" preload="auto">
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_efbaad2df3.mp3?filename=moan-female-85785.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Floating Bot Icon -->
+<!-- 🤖 Bot + WhatsApp + Insta -->
 <div class="bot-icon">
-  <a href="https://t.me/ATTAGADISANGAMU_bot" target="_blank" title="Add this bot">
-    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot Icon" />
-  </a>
+  <div class="icon-stack">
+    <!-- Bot -->
+    <a href="https://t.me/ATTAGADISANGAMU_bot" target="_blank" title="Add this bot">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot Icon" />
+    </a>
+    <!-- WhatsApp -->
+    <a href="https://whatsapp.com/channel/0029Vb5CALN0LKZ6tajkrK1i" target="_blank" title="WhatsApp Channel">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
+    </a>
+    <!-- Instagram -->
+    <a href="https://jhadekartik.github.io/logo_with_meme/" target="_blank" title="Instagram / Link">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon" />
+    </a>
+  </div>
 </div>
 
-<!-- Slide 1 -->
+<!-- Slide 1 (18+ entry) -->
 <div class="slide1" id="slide1">
   <div class="overlay"></div>
   <div class="content">
@@ -143,41 +162,3 @@
     <p>Are you 18+? Strictly for adults only 🔞</p>
     <button onclick="enterSite()">Enter</button>
     <button onclick="leaveSite()">Leave</button>
-  </div>
-</div>
-
-<!-- Slide 2 -->
-<div class="slide2" id="slide2">
-  <h2>Welcome Inside 🔥</h2>
-  <img src="https://sigmawire.net/i/04/megEqX.webp" alt="Adult Content" />
-  <a href="https://t.me/+5-6RRuotR1JmOGVl" target="_blank">Join Telegram</a>
-  <a href="https://t.me/+Wnk_WDVlINk3NTU1" target="_blank">Backup Channel</a>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const audio = document.getElementById("moanSound");
-    document.body.addEventListener("click", () => {
-      audio.load();
-    }, { once: true });
-  });
-
-  function enterSite() {
-    document.getElementById("slide1").style.display = "none";
-    document.getElementById("slide2").classList.add("active");
-
-    const audio = document.getElementById("moanSound");
-    audio.volume = 1;
-    audio.play().catch((e) => {
-      console.log("Audio play blocked:", e);
-    });
-  }
-
-  function leaveSite() {
-    alert("You must be 18+ to continue.");
-    window.location.href = "https://google.com";
-  }
-</script>
-
-</body>
-</html>
