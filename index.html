@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>logo_with_meme</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Orbitron', sans-serif;
+      font-family: Arial, sans-serif;
       background: #000;
       overflow: hidden;
     }
@@ -22,18 +20,17 @@
       height: 100%;
       top: 0;
       left: 0;
-      transition: opacity 1s ease;
+      transition: opacity 0.8s ease;
     }
 
     .slide1 {
       background: url('https://sigmawire.net/i/04/NRVzih.webp') no-repeat center center;
       background-size: cover;
-      filter: blur(3px);
       z-index: 1;
     }
 
     .overlay {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.7);
       position: absolute;
       width: 100%;
       height: 100%;
@@ -47,34 +44,24 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      color: #ff004f;
+      color: #ff00ff;
     }
 
-    .flicker {
-      font-size: 3.5em;
-      text-shadow: 0 0 15px #ff004f;
+    h1 {
+      font-size: 3em;
+      margin: 0;
       animation: flicker 1s infinite;
     }
 
     @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-      20%, 22%, 24%, 55% { opacity: 0.4; }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
     }
 
-    .tagline {
+    p {
+      margin: 10px 0;
       font-size: 1.2em;
-      color: #eee;
-      margin-top: 10px;
-    }
-
-    .warning {
-      margin-top: 15px;
-      font-size: 1em;
-      color: #ff4444;
-      background: rgba(255,0,0,0.2);
-      padding: 6px 14px;
-      border-radius: 8px;
-      display: inline-block;
+      color: #fff;
     }
 
     .btns {
@@ -82,7 +69,7 @@
     }
 
     .btn {
-      background: #ff004f;
+      background: #ff00ff;
       color: white;
       padding: 12px 24px;
       margin: 10px;
@@ -90,7 +77,7 @@
       border-radius: 5px;
       font-size: 1em;
       cursor: pointer;
-      box-shadow: 0 0 10px #ff004f;
+      box-shadow: 0 0 10px #ff00ff;
       transition: all 0.3s ease;
     }
 
@@ -119,7 +106,7 @@
     }
 
     .cta-btn {
-      background: #ff004f;
+      background: #ff00ff;
       color: white;
       padding: 15px 30px;
       margin-top: 20px;
@@ -127,7 +114,17 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 0 10px #ff004f;
+      box-shadow: 0 0 10px #ff00ff;
+    }
+
+    .warning {
+      margin-top: 15px;
+      font-size: 1em;
+      color: #ff4444;
+      background: rgba(255,0,0,0.2);
+      padding: 6px 14px;
+      border-radius: 8px;
+      display: inline-block;
     }
   </style>
 </head>
@@ -141,8 +138,8 @@
 <div class="overlay"></div>
 
 <div class="content">
-  <div class="flicker">logo_with_meme</div>
-  <div class="tagline">Where memes meet wild fantasies 😈</div>
+  <h1>logo_with_meme</h1>
+  <p>Where memes meet wild fantasies 😈</p>
   <div class="warning">Are you 18+? Strictly for adults only 🔞</div>
   <div class="btns">
     <button class="btn" onclick="enterSite()">Enter</button>
@@ -151,7 +148,7 @@
 </div>
 
 <div class="slide slide2" id="slide2">
-  <h1 style="color:#ff004f;text-shadow:0 0 10px #ff004f;">Welcome Inside 😏</h1>
+  <h1 style="color:#ff00ff;text-shadow:0 0 10px #ff00ff;">Welcome Inside 😏</h1>
   <p>Enjoy spicy memes & exclusive adult vibes.</p>
   <button class="cta-btn" onclick="window.location.href='https://t.me/+5-6RRuotR1JmOGVl'">Join Our Telegram</button>
 </div>
@@ -161,20 +158,19 @@
     const audio = document.getElementById('moanSound');
     const slide2 = document.getElementById('slide2');
 
-    // Show second slide
     slide2.classList.add('active');
 
-    // Play sound
+    // Play moan sound
     audio.volume = 0.7;
-    audio.play().catch(err => {
-      console.log('Audio autoplay blocked');
+    audio.play().catch(() => {
+      console.log("Audio play blocked. User interaction needed.");
     });
 
     if (navigator.vibrate) navigator.vibrate(100);
   }
 
   function leaveSite() {
-    alert("Sorry! You must be 18+ to enter.");
+    alert("You must be 18+ to enter.");
     window.location.href = "https://google.com";
   }
 </script>
